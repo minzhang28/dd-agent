@@ -197,7 +197,7 @@ class WMISampler(object):
         self.filters = new_filters
         # get rid of the formatted filters so they'll be recalculated
         self._formatted_filters = None
-        
+
     def sample(self):
         """
         Compute new samples.
