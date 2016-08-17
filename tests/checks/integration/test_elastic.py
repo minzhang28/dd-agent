@@ -413,7 +413,7 @@ class TestElastic(AgentCheckTest):
         self.assertEquals(c.ssl_key, "/path/to/cert.key")
 
     def test_health_event(self):
-        dummy_tags = ['foo:bar', 'elastique:recherche']
+        dummy_tags = ['foo:bar', 'elastique:recherche', 'cluster_name':'elasticsearch']
         config = {'instances': [
             {'url': 'http://localhost:9200', 'tags': dummy_tags}
         ]}
