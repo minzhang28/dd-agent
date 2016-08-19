@@ -244,7 +244,7 @@ class TestElastic(AgentCheckTest):
             "api_key": "bar"
         }
 
-        tags = [u"foo:bar", u"baz", u"cluster_name:elasticsearch"]
+        tags = [u"foo:bar", u"baz" ]
         url = 'http://localhost:{0}'.format(port)
         bad_url = 'http://localhost:{0}'.format(bad_port)
 
@@ -316,6 +316,7 @@ class TestElastic(AgentCheckTest):
 
                 if m_name in stats_keys:
                     m_tags = m_tags + [u"node_name:batman"]
+                    m_tags = m_tags + [u"cluster_name:elasticsearch"]
 
                 if desc[0] == "gauge":
                     self.assertMetric(
@@ -413,7 +414,7 @@ class TestElastic(AgentCheckTest):
         self.assertEquals(c.ssl_key, "/path/to/cert.key")
 
     def test_health_event(self):
-        dummy_tags = ['foo:bar', 'elastique:recherche', 'cluster_name:elasticsearch']
+        dummy_tags = ['foo:bar', 'elastique:recherche']
         config = {'instances': [
             {'url': 'http://localhost:9200', 'tags': dummy_tags}
         ]}
